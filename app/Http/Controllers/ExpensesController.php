@@ -31,6 +31,7 @@ class ExpensesController extends Controller
             'title'=>'required'
         ]);
         $incomingFields['title'] = strip_tags($incomingFields['title']);
+        $incomingFields['user_id'] = auth()->id();
         Expenses::create($incomingFields);
         return redirect('/');
    }
